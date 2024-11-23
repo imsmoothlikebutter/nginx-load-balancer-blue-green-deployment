@@ -4,7 +4,7 @@
 docker stop blue-container
 docker rm blue-container
 docker build -f Dockerfile.blue -t blue-app .
-docker run -d --name blue-container --network bluegreen-network blue-app
+docker run -d --name blue-container --network bluegreen-network -p 8080:80 blue-app
 
 # Step 2: Test the Blue container
 if curl -s http://blue-container:80 | grep "Blue Instance"; then
